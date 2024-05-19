@@ -10,6 +10,9 @@ function operate(operand1,operator,operand2) {
 
 let calculator = document.querySelector('.calculator');
 let display = document.querySelector('.display');
+let operand1 = null;
+let operand2 = null;
+let displayValue = '0';
 
 calculator.addEventListener('click', function(event) {
     let id = event.target.id;
@@ -24,8 +27,11 @@ calculator.addEventListener('click', function(event) {
         case '6':
         case '7':
         case '8':
-        case '9':
-            break;
+        case '9': if(displayValue.length < 8) {
+                    displayValue = (displayValue==='0')? id: (displayValue + id);
+                    display.textContent = displayValue;
+                }
+        break;
         case 'plus':
         case 'minus':
         case 'times':
