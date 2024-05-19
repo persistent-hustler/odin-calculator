@@ -36,16 +36,16 @@ calculator.addEventListener('click', function(event) {
         case 'plus':
         case 'minus':
         case 'times':
-        case 'divide-by': operator = id;
-        displayValue = '0';
-        if(operand1 !== null) {
+        case 'divide-by':
+        case 'equals': if(operand1 && operator) {
             operand2 = display.textContent;
             let result = operate(operand1,operator,operand2);
             display.textContent = result;
             operand2 = null;
+            operator = null;
         }
+        displayValue = '0';
         operand1 = display.textContent;
-            break;
-        case 'equals':
+        if(id!== 'equals') {operator = id;}
     }
 });
