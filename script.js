@@ -11,6 +11,7 @@ function operate(operand1,operator,operand2) {
 let calculator = document.querySelector('.calculator');
 let display = document.querySelector('.display');
 let operand1 = null;
+let operator = null;
 let operand2 = null;
 let displayValue = '0';
 
@@ -35,7 +36,15 @@ calculator.addEventListener('click', function(event) {
         case 'plus':
         case 'minus':
         case 'times':
-        case 'divide-by':
+        case 'divide-by': operator = id;
+        displayValue = '0';
+        if(operand1 !== null) {
+            operand2 = display.textContent;
+            let result = operate(operand1,operator,operand2);
+            display.textContent = result;
+            operand2 = null;
+        }
+        operand1 = display.textContent;
             break;
         case 'equals':
     }
