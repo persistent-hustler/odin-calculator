@@ -19,6 +19,11 @@ calculator.addEventListener('click', function (event) {
     let id = event.target.id;
 
     switch (id) {
+        case 'clear': if(display.textContent!==0) {
+            display.textContent = display.textContent.slice(0,-1);
+            displayValue = display.textContent;
+        }
+        break;
         case '.': if (displayValue.includes('.')) return;
         case '0': case '1': case '2': case '3': case '4': case '5': case '6': case '7': case '8': case '9':
             if (displayValue.length < 8) {
