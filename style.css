@@ -59,3 +59,9 @@ body{
     background-color: rgb(216, 6, 6);
     color: white;
 }
+
+.button:hover, #plus:hover, #minus:hover, #times:hover, #divide-by:hover, #equals:hover,
+#plus:focus, #minus:focus, #times:focus, #divide-by:focus, #all-clear:hover, #backspace:hover
+{
+    background-color: cadetblue;
+}
