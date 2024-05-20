@@ -24,6 +24,10 @@ calculator.addEventListener('click', function (event) {
             displayValue = display.textContent;
         }
         break;
+        case '+/-':
+            display.textContent = (Number(display.textContent) * -1).toString();
+            displayValue = display.textContent;
+            break;
         case '.': if (displayValue.includes('.')) return;
         case '0': case '1': case '2': case '3': case '4': case '5': case '6': case '7': case '8': case '9':
             if (displayValue.length < 8) {
