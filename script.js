@@ -34,7 +34,8 @@ calculator.addEventListener('click', function (event) {
             }
             if (operand1 && operator) {
                 operand2 = display.textContent;
-                let result = operate(operand1, operator, operand2);
+                let result = operate(operand1, operator, operand2).toString();
+                result = handleFloatingPoint(result);
                 display.textContent = result;
                 operand2 = null;
                 operator = null;
@@ -43,10 +44,21 @@ calculator.addEventListener('click', function (event) {
             operand1 = display.textContent;
             if (id !== 'equals') { operator = id; }
     }
-
-    if (parseInt(display.textContent) > 99999999 && parseInt(display.textContent) !== 'Infinity') {
+    let displayInt = parseInt(display.textContent);
+    if (displayInt > 99999999 && displayInt !== 'Infinity') {
         display.textContent = 'too big';
-    } else if((parseInt(display.textContent)< -9999999 && parseInt(display.textContent)!== '-Infinity')) {
+    } else if((displayInt< -9999999 && displayInt!== '-Infinity')) {
         display.textContent='too small';
     }
 });
+
+function handleFloatingPoint(result) {
+    if(!result.includes('.')) {
+        return result;
+    }
+    let intLength = parseInt(result).toString().length;
+    let floatLength = 8 - intLength;
+    result = Number(result).toFixed(floatLength).toString();
+    result = parseFloat(result);
+    return result;
+}
