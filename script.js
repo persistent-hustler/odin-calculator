@@ -19,15 +19,6 @@ calculator.addEventListener('click', function (event) {
     let id = event.target.id;
 
     switch (id) {
-        case 'clear': if(display.textContent!==0) {
-            display.textContent = display.textContent.slice(0,-1);
-            displayValue = display.textContent;
-        }
-        break;
-        case '+/-':
-            display.textContent = (Number(display.textContent) * -1).toString();
-            displayValue = display.textContent;
-            break;
         case '.': if (displayValue.includes('.')) return;
         case '0': case '1': case '2': case '3': case '4': case '5': case '6': case '7': case '8': case '9':
             if (displayValue.length < 8) {
@@ -52,6 +43,22 @@ calculator.addEventListener('click', function (event) {
             displayValue = '0';
             operand1 = display.textContent;
             if (id !== 'equals') { operator = id; }
+            break;
+            case 'clear': if(display.textContent!==0) {
+                display.textContent = display.textContent.slice(0,-1);
+                displayValue = display.textContent;
+            }
+            break;
+            case 'all-clear': operand1 = null;
+            operator = null;
+            operand2 = null;
+            displayValue = '0';
+            display.textContent = displayValue;
+            break;
+            case '+/-':
+                display.textContent = (Number(display.textContent) * -1).toString();
+                displayValue = display.textContent;
+            break;
     }
     let displayInt = parseInt(display.textContent);
     if (displayInt > 99999999 && displayInt !== 'Infinity') {
