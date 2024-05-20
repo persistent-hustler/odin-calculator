@@ -10,9 +10,15 @@ body{
     background-color: rgb(210, 250, 252);
 }
 
+p {
+    color: rgb(85, 84, 84);
+    margin: 4px 0 0;
+    text-align: center;
+}
+
 .calculator{
     border: 2px solid black;
-    padding: 20px;
+    padding: 4px 20px 20px;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -22,11 +28,11 @@ body{
 .display {
     height: 80px;
     border: 2px solid black;
+    margin-bottom: 12px;
     font-size: 46px;
     text-align: end;
     background-color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin-bottom: 12px;
 }
 
 .row {
@@ -64,4 +70,9 @@ body{
 #plus:focus, #minus:focus, #times:focus, #divide-by:focus, #all-clear:hover, #backspace:hover
 {
     background-color: cadetblue;
+}
+
+.calculator a {
+    text-decoration: none;
+    color: rgb(85, 84, 84);
 }
