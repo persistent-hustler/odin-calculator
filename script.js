@@ -17,6 +17,7 @@ let displayValue = '0';
 let lastPressedKey = '';
 
 calculator.addEventListener('click', function (event) {
+    if(event.target.tagName !=='BUTTON') return;
     let id = event.target.id;
 
     switch (id) {
@@ -71,7 +72,7 @@ calculator.addEventListener('click', function (event) {
     } else if((displayInt< -9999999 && displayInt!== '-Infinity')) {
         display.textContent='too small';
     }
-        if(event.target.tagName === 'BUTTON') lastPressedKey = id;
+    lastPressedKey = id;
 });
 
 function handleFloatingPoint(result) {
