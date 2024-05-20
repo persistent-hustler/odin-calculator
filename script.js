@@ -14,6 +14,7 @@ let operand1 = null;
 let operator = null;
 let operand2 = null;
 let displayValue = '0';
+let lastPressedKey = '';
 
 calculator.addEventListener('click', function (event) {
     let id = event.target.id;
@@ -27,7 +28,7 @@ calculator.addEventListener('click', function (event) {
             }
             break;
         case 'plus': case 'minus': case 'times': case 'divide-by': case 'equals':
-            if(displayValue==='0' && id==='minus') {
+            if(displayValue==='0' && id==='minus' && lastPressedKey !== 'equals') {
                 displayValue = '-';
                 display.textContent = displayValue;
                 return;
@@ -70,6 +71,7 @@ calculator.addEventListener('click', function (event) {
     } else if((displayInt< -9999999 && displayInt!== '-Infinity')) {
         display.textContent='too small';
     }
+        lastPressedKey = id;
 });
 
 function handleFloatingPoint(result) {
