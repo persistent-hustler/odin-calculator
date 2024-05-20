@@ -71,7 +71,7 @@ calculator.addEventListener('click', function (event) {
     } else if((displayInt< -9999999 && displayInt!== '-Infinity')) {
         display.textContent='too small';
     }
-        lastPressedKey = id;
+        if(event.target.tagName === 'BUTTON') lastPressedKey = id;
 });
 
 function handleFloatingPoint(result) {
