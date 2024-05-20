@@ -55,7 +55,7 @@ body{
     background-color: rgb(245, 144, 1);
 }
 
-#all-clear, #clear {
+#all-clear, #backspace {
     background-color: rgb(216, 6, 6);
     color: white;
 }

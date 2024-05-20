@@ -44,7 +44,7 @@ calculator.addEventListener('click', function (event) {
             operand1 = display.textContent;
             if (id !== 'equals') { operator = id; }
             break;
-            case 'clear': if(display.textContent!==0) {
+            case 'backspace': if(display.textContent!==0) {
                 display.textContent = display.textContent.slice(0,-1);
                 displayValue = display.textContent;
             }
